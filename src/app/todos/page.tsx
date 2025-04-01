@@ -12,7 +12,7 @@ export default function Home() {
     const [answer, setAnswer] = useState(false);
     var   [name, setName] = useState<string|null>(null)
     const [open, setOpen] =  useState(false);
-    const [items, setItems] =  useState<string[][]|null>([]);
+    const [items, setItems] =  useState<string[][]>([]);
     useEffect(() => {
       const storedName = localStorage.getItem("name");
       if (!storedName) {
@@ -36,14 +36,14 @@ export default function Home() {
           "user Server";
           e.preventDefault()
           const formURL = e.target.action
-          var  i = items;
+          let  i:string[][] = items;
           let  j:string[] = [e.target[0].value,e.target[1].value,e.target[2].value]
           i.push(j);
            setItems(i);
           localStorage.setItem("todos",JSON.stringify(items));
 
   }
-  async function removeTodo(id) {  
+  async function removeTodo(id:string) {  
     const newTodos = items?.filter((todo) => todo[0] !== id) || []; // Create a new array
   
     setItems(newTodos); // Update state
