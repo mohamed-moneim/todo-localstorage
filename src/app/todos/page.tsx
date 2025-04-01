@@ -32,7 +32,7 @@ export default function Home() {
         setName(storedName)
       }
     }, []); 
-        async function handleSubmit(e){
+        async function handleSubmit(e :React.ChangeEvent<any>){
           "user Server";
           e.preventDefault()
           const formURL = e.target.action

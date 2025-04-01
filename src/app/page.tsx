@@ -14,7 +14,7 @@ export default function Home() {
       if (storedName) {
       }
     }, []);
-        async function handleSubmit(e){
+        async function handleSubmit(e:React.ChangeEvent<any>){
           "user Server";
           e.preventDefault()
 
