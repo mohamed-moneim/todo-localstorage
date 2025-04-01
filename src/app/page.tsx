@@ -12,6 +12,7 @@ export default function Home() {
     useEffect(() => {
       const storedName = localStorage.getItem("name");
       if (storedName) {
+        redirect(`/todos`) // Navigate to the new post page
       }
     }, []);
         async function handleSubmit(e:React.ChangeEvent<any>){

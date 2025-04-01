@@ -41,19 +41,24 @@ export default function Home() {
           i.push(j);
            setItems(i);
           localStorage.setItem("todos",JSON.stringify(items));
-
+          setOpen(false)
   }
   async function removeTodo(id:string) {  
     const newTodos = items?.filter((todo) => todo[0] !== id) || []; // Create a new array
-  
     setItems(newTodos); // Update state
     localStorage.setItem("todos", JSON.stringify(newTodos)); // Update localStorage
   }
+  async function logout() {
+    localStorage.removeItem("name");
+    localStorage.removeItem("todos");
+    redirect(`/`) // Navigate to the new post page
+  }
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-between min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+    <div className="grid grid-rows-[20px_1fr_20px] items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
       <div className="body">    
-          <img onClick={()=>{setOpen(!open)}} className='add' src='/img/add.png'/>
+      <img onClick={()=>{setOpen(!open)}} className='add' src='/img/add.png'/>
+      <img onClick={logout} className='logout' src='/img/logout.png'/>
           
           <div
             className="modal show"

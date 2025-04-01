@@ -40,6 +40,12 @@ form{
   z-index: 10;
   margin: 0px 30px;
 }
+.logout{
+  float: left;
+  width: 50px;
+  z-index: 10;
+  margin: 0px 30px;
+}
 .body{
  width: 100%;
 }
